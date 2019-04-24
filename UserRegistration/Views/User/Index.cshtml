@@ -1,0 +1,96 @@
+﻿@model UserRegistration.Models.UserViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/Style.css" rel="stylesheet" />
+<style>
+
+    .form-control{
+
+        position:relative;
+        margin-bottom:5px;
+    }
+    .field-validation-error {
+        position: absolute;
+        background-color: #E3142C;
+        color: white;
+        text-align: center;
+        padding: 5px 2px 5px 2px;
+        width: 200px;
+        float: right;
+        display: block;
+        margin-left: 50%;
+    }
+    .field-validation-error:after {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-top: 0px solid #E3142C;
+        border-right: 2px solid #E3142C;
+        border-bottom: 2px solid #E3142C;
+        border-left: 0px solid #E3142C;
+        top: 100%;
+        left: 75%;
+        margin-left: -;
+        content: '';
+        transform: rotate(45deg);
+        margin-top: -5px;
+        background-color: #E3142C;
+    }
+    .input-validation-error {
+        border: 1px solid #E3142C;
+    }
+    .h6, h6 {
+        font-size: 15px;
+        float: left;
+    }
+   .span{
+       text-align:center;
+   }
+    .btn {
+        border-color: #9ACFF5;
+        border-width: 2px;
+    }
+
+</style>
+
+
+<div class="container" style="width:40%; margin-top:2%">
+    <div class="row well well-lg">
+        <div class="form-group">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                @using (Html.BeginForm("SaveRecord", "User", FormMethod.Post))
+                {
+                    
+                    <h6>First name *</h6>
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+
+                    <h6>Last name *</h6>
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+
+                    <h6>Your email address *</h6>
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+
+                    <h6>Preferred contact phone number *</h6>
+                    @Html.ValidationMessageFor(model => model.PhoneNo, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(model => model.PhoneNo, new { @class = "form-control" })
+
+                    <h6>Do you work in a madical practice? *</h6>
+                    @Html.ValidationMessageFor(model => model.IsWorkingID, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(model => model.IsWorkingID, ViewBag.WorkingDetail as SelectList, "", new { @class = "form-control" })
+                    
+                    <h6>* Required</h6>
+                    <input type="submit" name="Submit" value="Start trial" class="btn btn-primary btn-block border-primary " />
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

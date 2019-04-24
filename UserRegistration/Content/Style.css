@@ -1,0 +1,18 @@
+﻿
+* {
+    border-radius: 0 !important;
+}
+
+
+}
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #4AB1EC;
+    height: 50px;
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    
+
+.border-primary, .border-primary:hover, border-primary:active, .border-primary:visited {
+    
+}
